@@ -7,7 +7,7 @@ const BagContentSchema = new Schema ({
         //Small or Large bag
         type:String
     },
-    prduct:{
+    product:{
         //list of fruit in the bag
         type:[ProductSchema]
     },
