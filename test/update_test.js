@@ -15,7 +15,7 @@ describe('Updating records', ()=>{
         order1 = new Order({notes: 'test'});
         apple = new Product({itemName:'apple'});
         picking1 = new Picking({amountHarvested:5})
-        sBag = new BagContent({typeOfBag:'small'});
+        sBag = new BagContent({priceSmall:5});
 
         Promise.all([ivan.save(),order1.save(),apple.save(),picking1.save(),sBag.save()])
         .then(()=>{
@@ -81,7 +81,7 @@ describe('Updating records', ()=>{
             .then(() => {
               BagContent.find({}).then((bags) => {
                 assert(bags.length === 1);
-                assert(bags[0].typeOfBag === 'large');
+                assert(bags[0].priceSmall === 10);
                 done();
                 }).catch((e) => done(e));
             });
@@ -158,7 +158,7 @@ describe('Updating records', ()=>{
     it('instance type using set n save for product', (done) => {
         apple.set('itemName', 'pear');
         assertNameProduct(apple.save(), done);
-        
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'+apple.itemName);
     });
     
     
@@ -189,33 +189,33 @@ describe('Updating records', ()=>{
 
     //----------------------PICKING-----------------------------------------------
 
-    it('instance type using set n save for product', (done) => {
+    it('instance type using set n save for PICKING', (done) => {
         picking1.set('amountHarvested', 1);
         assertNamePicking(picking1.save(), done);
         
     });
     
     
-    it('Model instance can update for product',(done) =>{
+    it('Model instance can update for PICKING',(done) =>{
         assertNamePicking(picking1.update({amountHarvested:1}), done);
          
     });
     
-    it('Model class can update for product' ,(done) =>{
+    it('Model class can update for PICKING' ,(done) =>{
         assertNamePicking(
         Picking.update({amountHarvested:5},{amountHarvested:1}), done);
     
     
     });
     
-    it('A model class that can update one record for product' ,(done) =>{
+    it('A model class that can update one record for PICKING' ,(done) =>{
         assertNamePicking(
             Picking.updateOne({amountHarvested:5}, {amountHarvested:1}), done
         );
     
     });
     
-    it('A model class can find a record with an Id and update for product' ,(done) =>{
+    it('A model class can find a record with an Id and update for PICKING' ,(done) =>{
         assertNamePicking(Picking.findByIdAndUpdate(picking1._id, {amountHarvested:1}), done );
     
     });
@@ -223,34 +223,34 @@ describe('Updating records', ()=>{
 
     //----------------------VEGBAGS-----------------------------------------------
 
-    it('instance type using set n save for product', (done) => {
-        sBag.set('typeOfBag', 'large');
+    it('instance type using set n save for VEGBAGS', (done) => {
+        sBag.set('priceSmall', 10);
         assertNameBag(sBag.save(), done);
         
     });
     
     
-    it('Model instance can update for product',(done) =>{
-        assertNameBag(sBag.update({typeOfBag:'large'}), done);
+    it('Model instance can update for VEGBAGS',(done) =>{
+        assertNameBag(sBag.update({priceSmall:10}), done);
          
     });
     
-    it('Model class can update for product' ,(done) =>{
+    it('Model class can update for VEGBAGS' ,(done) =>{
         assertNameBag(
-        BagContent.update({typeOfBag:'small'},{typeOfBag:'large'}), done);
+        BagContent.update({priceSmall:5},{priceSmall:10}), done);
     
     
     });
     
-    it('A model class that can update one record for product' ,(done) =>{
+    it('A model class that can update one record for VEGBAGS' ,(done) =>{
         assertNameBag(
-            BagContent.updateOne({typeOfBag:'small'}, {typeOfBag:'large'}), done
+            BagContent.updateOne({priceSmall:5}, {priceSmall:10}), done
         );
     
     });
     
-    it('A model class can find a record with an Id and update for product' ,(done) =>{
-        assertNameBag(BagContent.findByIdAndUpdate(sBag._id, {typeOfBag:'large'}), done );
+    it('A model class can find a record with an Id and update for VEGBAGS' ,(done) =>{
+        assertNameBag(BagContent.findByIdAndUpdate(sBag._id, {priceSmall:10}), done );
     
     });
 

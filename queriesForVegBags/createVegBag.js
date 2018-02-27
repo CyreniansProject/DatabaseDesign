@@ -3,7 +3,7 @@ const BagContent = require('../src/bagContent');
 module.exports = (bagDetails, productList) => {
     const newBag = new BagContent(bagDetails);
     productList.array.forEach(element => {
-        newBag.product.pushback(element);
+        newBag.product.push(element);
     });
 
     newBag.save(callback);

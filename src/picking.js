@@ -15,7 +15,10 @@ const PickingSchema = new Schema ({
         //how much has been harvested
         type:Number
     }
+   
 });
+
+
 
 const Picking = mongoose.model('picking', PickingSchema);
 module.exports = Picking;

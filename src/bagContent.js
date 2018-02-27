@@ -1,19 +1,30 @@
 const mongoose = require('mongoose');
-const ProductSchema = require('./product_virtual');
+const ProductSchema = require('./product');
 const Schema = mongoose.Schema;
 
 const BagContentSchema = new Schema ({
-    typeOfBag:{
-        //Small or Large bag
+    
+    product:[{
+        //list of fruit in the bag
+            type:Schema.Types.ObjectId,
+            ref:'product'
+        }],
+    startDate:{
+        //date of the bag creation
         type:String
     },
-    product:{
-        //list of fruit in the bag
-        type:[ProductSchema]
+    endDate:{
+        //date of the bag expiration
+        type:String
     },
-    date:{
-        //date of the bag creation
-        type:Date
+    priceSmall:{
+        type:Number
+    },
+    priceMedium:{
+        type:Number
+    },
+    priceLarge:{
+        type:Number
     }
 });
 

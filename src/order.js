@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const ClientSchema = require('./client');
+const ProductSchema = require('./product');
 const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema ({
@@ -22,7 +23,16 @@ const OrderSchema = new Schema ({
     numberOfBags:{
         //how many vegBags are to be delivered
         type:Number
-    }
+    },
+    typeOfBag:{
+        //type of bag ordered
+        type:String
+    },
+    addOns:[{
+        //list of fruit in the bag
+            type:Schema.Types.ObjectId,
+            ref:'product'
+        }]
 
 });
 
