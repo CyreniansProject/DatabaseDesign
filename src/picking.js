@@ -9,7 +9,7 @@ const PickingSchema = new Schema ({
     },
     pickingWeek:{
         //date of picking
-        type:Date
+        type:String
     },
     amountHarvested:{
         //how much has been harvested

@@ -7,7 +7,7 @@ const BagContent = require('../src/bagContent');
 const mongoose= require('mongoose');
 
 describe('Deleting Tests for all datasets', ()=>{
-    
+
     let ivan,order1,apple,picking1,sBag;
  
     beforeEach((done) =>{

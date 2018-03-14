@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dateformat": "^3.0.3",
     "mocha": "^5.0.0",
     "mongoose": "^5.0.2",
     "nodemon": "^1.14.11"

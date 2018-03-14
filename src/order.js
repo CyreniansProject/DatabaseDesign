@@ -18,7 +18,7 @@ const OrderSchema = new Schema ({
     },
     date:{
         //date for the order to be delivered
-        type:Date
+        type:String
     },
     numberOfBags:{
         //how many vegBags are to be delivered

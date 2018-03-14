@@ -5,8 +5,8 @@ module.exports = (_id,updatedDetails,updatedList) => {
     .then((bag) =>{
     bag.update(updatedDetails);
     bag.product = [];
-    updatedList.array.forEach(element => {
-        bag.product.pushback(element);
+    updatedList.forEach(element => {
+        bag.product.push(element);
         });
     bag.save(callback);
     });
